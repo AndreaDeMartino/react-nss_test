@@ -1,4 +1,4 @@
-import React, { useContext, useState} from "react";
+import React, { useContext, useState, useRef, useEffect } from "react";
 // import ImageFadeIn from "react-image-fade-in";
 
 // Utility and Retrive Context
@@ -18,10 +18,13 @@ const HeroBanner = ({ heroBannerData }) => {
   const { isMobile } = useContext(DeviceHelperContext);
   const { setCounterLoader } = useContext(DeviceHelperContext);
   const [slideIndex, setSlideIndex] = useState(0);
+  const [slideNexIndex, setSlideNexIndex] = useState(slideIndex + 1);
   const [thumbButtonHover, setThumbButtonHover] = useState(false);
   const [imageChange, setImageChange] = useState(false);
+  const imageRef = useRef();
+  const thumbImageRef = useRef();
 
-  // Change Slide
+  // Change Slide Handler
   const activateNextSlide = () => {
     setImageChange(true);
     if (slideIndex + 1 >= retriveImageList.length) {
@@ -29,19 +32,30 @@ const HeroBanner = ({ heroBannerData }) => {
     } else {
       setSlideIndex((slideIndex) => slideIndex + 1);
     }
+    imageRef.current.style.opacity = 0;
+    !isMobile && (thumbImageRef.current.style.opacity = 0);
     setTimeout(() => {
       setImageChange(false);
     }, 0);
   };
 
-  // Update Index for custom slider
-  const getNextIndex = () => {
-    if (slideIndex + 1 >= retriveImageList.length) {
-      return 0;
-    } else {
-      return slideIndex + 1;
-    }
+  // Load Image Event Handler
+  const handleLoad = () => {
+    setCounterLoader((prevEl) => prevEl + 1);
+    imageRef.current.style.opacity = 1;
+    !isMobile && (thumbImageRef.current.style.opacity = 1);
   };
+
+  // Handler when index change (doing loop)
+  useEffect(() => {
+    // Update Index for custom slider
+    if (slideIndex + 1 >= retriveImageList.length) {
+      setSlideNexIndex(0);
+    } else {
+      setSlideNexIndex(slideIndex + 1);
+    }
+  }, [slideIndex]);
+
   // Jsx
   return (
     <>
@@ -55,10 +69,11 @@ const HeroBanner = ({ heroBannerData }) => {
           <div className="hero-banner__slide">
             {!imageChange && (
               <img
+                ref={imageRef}
                 className="hero-banner__slide-image slide-image lazy-image"
                 src={retriveImageList[slideIndex]}
                 alt="slide-image"
-                onLoad={() => setCounterLoader((prevEl) => prevEl + 1)}
+                onLoad={handleLoad}
               ></img>
             )}
             <div className="hero-banner__slide-text-wrapper">
@@ -101,8 +116,9 @@ const HeroBanner = ({ heroBannerData }) => {
             >
               {!isMobile && (
                 <img
+                  ref={thumbImageRef}
                   className="hero-banner__thumb-image slide-image lazy-image"
-                  src={retriveImageList[getNextIndex()]}
+                  src={retriveImageList[slideNexIndex]}
                   alt="slide-image"
                   onLoad={() => setCounterLoader((prevEl) => prevEl + 1)}
                 />
@@ -110,7 +126,7 @@ const HeroBanner = ({ heroBannerData }) => {
               <div className="hero-banner__thumb-text">
                 {!isMobile && (
                   <h2 className="thumb-title text__default text__default--title-sm color--white">
-                    {heroBannerData[getNextIndex()]?.title.label}
+                    {heroBannerData[slideNexIndex]?.title.label}
                   </h2>
                 )}
                 <div className="thumb-button">

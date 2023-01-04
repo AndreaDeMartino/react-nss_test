@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 // Components
 import { Cta } from "./../UI/Cta/Cta";
 
 // Utility and Retrive Context
 import { getImagePath } from "./../../utility";
-import LazyLoad from "react-lazy-load";
+import { DeviceHelperContext } from "./../../App";
 
 const ContactUs = ({ contactUsData }) => {
   // State
   const [inputData, setInputData] = useState("");
+  const { setCounterLoader } = useContext(DeviceHelperContext);
 
   // Functions
   const inputDataHandler = (e) => {
@@ -22,9 +23,13 @@ const ContactUs = ({ contactUsData }) => {
   // Jsx
   return (
     <div className="contact-us">
-      <LazyLoad offset={300} height={"100%"} width={"100%"}>
-        <img className="contact-us__bg" src={getImagePath(contactUsData.image)} alt="contact-us-image" />
-      </LazyLoad>
+      <img
+        className="contact-us__bg"
+        src={getImagePath(contactUsData.image)}
+        alt="contact-us-image"
+        onLoad={() => setCounterLoader((prevEl) => prevEl + 1)}
+      />
+
       <div className="contact-us__wrapper">
         <h3
           className={`contact-us__sub-title text__default text__default--title-lg  color--${contactUsData.title.color}`}

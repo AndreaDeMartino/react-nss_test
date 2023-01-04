@@ -63,7 +63,7 @@ export const data = {
       },
       {
         id: 2,
-        image: "/images/slide_2.png",
+        image: "/images/slide_2.webp",
         preTitle: { label: "LONDON COLLECTION SEASON", color: "white" },
         title: { label: "New Selection Of Henry London", color: "white" },
         subTitle: {
@@ -120,14 +120,14 @@ export const data = {
       },
       right: {
         isImage: true,
-        image: "/images/article_1.png",
+        image: "/images/article_1.webp",
       },
     },
     {
       id: 2,
       left: {
         isImage: true,
-        image: "/images/article_2.png",
+        image: "/images/article_2.webp",
       },
       right: {
         isImage: false,

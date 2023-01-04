@@ -1,10 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState} from "react";
 // import ImageFadeIn from "react-image-fade-in";
 
 // Utility and Retrive Context
 import { DeviceHelperContext } from "./../../App";
 import { getImagePath } from "./../../utility";
-import LazyLoad from "react-lazy-load";
 
 // Components
 import { Cta } from "./../UI/Cta/Cta";
@@ -17,6 +16,7 @@ const HeroBanner = ({ heroBannerData }) => {
 
   // States
   const { isMobile } = useContext(DeviceHelperContext);
+  const { setCounterLoader } = useContext(DeviceHelperContext);
   const [slideIndex, setSlideIndex] = useState(0);
   const [thumbButtonHover, setThumbButtonHover] = useState(false);
   const [imageChange, setImageChange] = useState(false);
@@ -42,7 +42,6 @@ const HeroBanner = ({ heroBannerData }) => {
       return slideIndex + 1;
     }
   };
-
   // Jsx
   return (
     <>
@@ -55,13 +54,12 @@ const HeroBanner = ({ heroBannerData }) => {
         >
           <div className="hero-banner__slide">
             {!imageChange && (
-              <LazyLoad offset={200}>
-                <img
-                  className="hero-banner__slide-image slide-image"
-                  src={retriveImageList[slideIndex]}
-                  alt="slide-image"
-                ></img>
-              </LazyLoad>
+              <img
+                className="hero-banner__slide-image slide-image lazy-image"
+                src={retriveImageList[slideIndex]}
+                alt="slide-image"
+                onLoad={() => setCounterLoader((prevEl) => prevEl + 1)}
+              ></img>
             )}
             <div className="hero-banner__slide-text-wrapper">
               <h2
@@ -102,13 +100,12 @@ const HeroBanner = ({ heroBannerData }) => {
               }}
             >
               {!isMobile && (
-                <LazyLoad offset={200}>
-                  <img
-                    className="hero-banner__thumb-image slide-image"
-                    src={retriveImageList[getNextIndex()]}
-                    alt="slide-image"
-                  />
-                </LazyLoad>
+                <img
+                  className="hero-banner__thumb-image slide-image lazy-image"
+                  src={retriveImageList[getNextIndex()]}
+                  alt="slide-image"
+                  onLoad={() => setCounterLoader((prevEl) => prevEl + 1)}
+                />
               )}
               <div className="hero-banner__thumb-text">
                 {!isMobile && (

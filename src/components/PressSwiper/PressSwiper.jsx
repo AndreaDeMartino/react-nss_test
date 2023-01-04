@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 // Utility and Retrive Context
 import { getImagePath } from "./../../utility";
-import LazyLoad from "react-lazy-load";
+import { DeviceHelperContext } from "./../../App";
 
 const PressSwiper = ({ pressSwiperData }) => {
   // Icons
@@ -15,6 +15,7 @@ const PressSwiper = ({ pressSwiperData }) => {
   });
 
   // State
+  const { setCounterLoader } = useContext(DeviceHelperContext);
   const [slideIndex, setSlideIndex] = useState(0);
 
   // Functions
@@ -49,12 +50,11 @@ const PressSwiper = ({ pressSwiperData }) => {
       <div
         className={`press-swiper__slider-wrapper bg--${pressSwiperData.textBlock.bgColorSlideBlock}`}
       >
-        <LazyLoad offset={400}>
-          <img
-            className="press-swiper__slider"
-            src={retriveImageList[slideIndex]}
-          ></img>
-        </LazyLoad>
+        <img
+          className="press-swiper__slider lazy-image"
+          src={retriveImageList[slideIndex]}
+          onLoad={() => setCounterLoader((prevEl) => prevEl + 1)}
+        ></img>
       </div>
       <div
         className={`press-swiper__block-bg bg--${pressSwiperData.textBlock.bgColorSlideBlock}`}
@@ -76,21 +76,17 @@ const PressSwiper = ({ pressSwiperData }) => {
             {pressSwiperData.press[slideIndex].title.label}
           </h3>
           <div className="slide-arrows">
-            <LazyLoad offset={200}>
-              <img
-                className="slide-arrow slide-arrow--left"
-                src={arrowLeftIcon}
-                alt="arrow-left"
-              />
-            </LazyLoad>
-            <LazyLoad offset={200}>
-              <img
-                className="slide-arrow slide-arrow--right"
-                src={arrowRightIcon}
-                alt="arrow-right"
-                onClick={getNextIndex}
-              />
-            </LazyLoad>
+            <img
+              className="slide-arrow slide-arrow--left"
+              src={arrowLeftIcon}
+              alt="arrow-left"
+            />
+            <img
+              className="slide-arrow slide-arrow--right"
+              src={arrowRightIcon}
+              alt="arrow-right"
+              onClick={getNextIndex}
+            />
           </div>
         </div>
       </div>

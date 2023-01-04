@@ -9,6 +9,7 @@ import TextImage from "./components/TextImage/TextImage";
 import PressSwiper from "./components/PressSwiper/PressSwiper";
 import Mosaic from "./components/Mosaic/Mosaic";
 import ContactUs from "./components/ContactUs/ContactUs";
+import SpinnerModal from "./components/UI/SpinnerModal/SpinnerModal";
 
 // Style
 import "./style/main.scss";
@@ -34,7 +35,7 @@ function App() {
   // Global State
   const [isMobile, setIsMobile] = useState(detectMobile());
   const [isMenuMobileOpen, setIsMenuMobileOpen] = useState(false);
-
+  const [counterLoader, setCounterLoader] = useState(0);
   // Callback for resize Handler
   const detectMobileHandler = () => {
     setIsMobile(detectMobile());
@@ -42,6 +43,7 @@ function App() {
 
   // Resize Handler
   useEffect(() => {
+    document.body.classList.add("stop-scroll");
     window.addEventListener("resize", detectMobileHandler);
     return () => {
       window.removeEventListener("resize", detectMobileHandler);
@@ -52,10 +54,15 @@ function App() {
   return (
     <div
       className={`App ${isMobile ? "App--mobile" : "App--Desktop"} u-container`}
-      id="app"
     >
       <DeviceHelperContext.Provider
-        value={{ isMobile, isMenuMobileOpen, setIsMenuMobileOpen }}
+        value={{
+          isMobile,
+          isMenuMobileOpen,
+          setIsMenuMobileOpen,
+          counterLoader,
+          setCounterLoader,
+        }}
       >
         <Header headerData={headerData}></Header>
         <HeroBanner heroBannerData={heroBannerData.slideList}></HeroBanner>
@@ -69,6 +76,7 @@ function App() {
         <Mosaic mosaicData={mosaicData}></Mosaic>
         <ContactUs contactUsData={contactUsData}></ContactUs>
         <Footer footerData={footerData}></Footer>
+        <SpinnerModal></SpinnerModal>
       </DeviceHelperContext.Provider>
     </div>
   );

@@ -1,25 +1,27 @@
-import React from "react";
+import React, {useContext} from "react";
 
 // Utility
 import { getImagePath } from "./../../../utility";
-import LazyLoad from "react-lazy-load";
+import { DeviceHelperContext } from "./../../../App";
 
 // Components
 import { Cta } from "./../../UI/Cta/Cta";
 
 export const TextImageBlock = ({ blockData }) => {
+  // State
+  const { setCounterLoader } = useContext(DeviceHelperContext);
+
   // Jsx
   return (
     <div className="text-image__block">
       {blockData?.isImage ? (
         <div className="block__image-wrapper">
-          <LazyLoad offset={600} height={"100%"} width={"100%"}>
-            <img
-              className="block__image"
-              src={getImagePath(blockData.image)}
-              alt="block image"
-            />
-          </LazyLoad>
+          <img
+            className="block__image lazy-image"
+            src={getImagePath(blockData.image)}
+            alt="block image"
+            onLoad={() => setCounterLoader((prevEl) => prevEl + 1)}
+          />
         </div>
       ) : (
         <div className="block__text">

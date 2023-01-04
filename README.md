@@ -1,7 +1,7 @@
  
 # NSS TEST PROJECT
 <p align="center">
- <img src="" align="center" alt="NSS img" />
+ <img src="https://assets.nssmag.com/extensions/nss/images/digital-cover/n10/logo.gif" align="center" alt="NSS img" />
 </p>
 
 ## Deployed project

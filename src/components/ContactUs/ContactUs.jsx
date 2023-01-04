@@ -45,7 +45,8 @@ const ContactUs = ({ contactUsData }) => {
         <div className="contact-us__form">
           <input
             className="contact-us__input text__deafault text__default--contact"
-            type="text"
+            type="email"
+            name="email"
             placeholder="Type your email"
             onChange={inputDataHandler}
             value={inputData}

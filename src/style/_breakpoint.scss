@@ -1,0 +1,66 @@
+/****************************************************
+  * BREAKPOINT
+****************************************************/
+
+/* === SMALL PHONES === */
+@mixin small-mobile {
+  @media (max-width: 575px) {
+    @content;
+  }
+}
+
+/* === PHONES === */
+@mixin mobile {
+  @media (min-width: 576px) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+/* === MOBILE BLOCK === */
+@mixin mobileBlock {
+  @media (max-width: 1279px) {
+    @content;
+  }
+}
+
+/* === DESKTOP === */
+@mixin desktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+/* CONTAINER
+  ============================= */
+
+/* == LG == */
+@include desktop {
+  .u-container {
+    margin: 0 auto;
+    max-width: 1920px;
+  }
+}
+
+/* == MOBILE BLOCK == */
+@include mobileBlock {
+  .u-container {
+    margin: 0 auto;
+    max-width: 1279px;
+  }
+}
+
+/* == SM == */
+@include mobile {
+  .u-container {
+    margin: 0 auto;
+    max-width: 1024px;
+  }
+}
+
+/* == XS == */
+@include small-mobile {
+  .u-container {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,167 @@
+/****************************************************
+  * HEADER
+****************************************************/
+
+.header {
+  width: 100%;
+  height: 100px;
+  min-height: 100px;
+  background-color: $white;
+  color: $black;
+  position: relative;
+  @include u-flex(row, space-around, center);
+  @include mobileBlock {
+    height: 81px;
+    min-height: 81px;
+    @include u-flex(row, space-between, end);
+    position: fixed;
+    z-index: 20;
+  }
+
+  &__logo {
+    width: 337px;
+    max-width: 337px;
+    min-width: 337px;
+    height: 100%;
+    margin-right: 20px;
+    background-color: $lightGrey;
+    @include u-flex(row, center, center);
+    @include mobileBlock {
+      width: 182px;
+      max-width: 182px;
+      min-width: 182px;
+      align-items: end;
+      margin-right: 0;
+    }
+  }
+
+  &__image-logo {
+    width: 100%;
+    height: 42px;
+    padding: 0 20px;
+    @include mobileBlock {
+      width: 182px;
+      height: 26px;
+      margin-left: 20px;
+      margin-bottom: 11px;
+      padding: 0;
+    }
+  }
+
+  &__image-icon {
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  &__items {
+    width: 100%;
+    height: 100%;
+    &-list {
+      width: 100%;
+      height: 100%;
+      @include u-flex(row, space-around, center);
+    }
+  }
+
+  &__item {
+    cursor: pointer;
+    & > a {
+      transition: 400ms;
+      border-bottom: 1px solid transparent;
+      &:hover {
+        color: $lightGrey;
+        border-color: $lightGrey;
+      }
+    }
+  }
+
+  &__search {
+    &.header__mobile-menu-item {
+      margin: 0;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      input {
+        width: 100%;
+        max-width: 100%;
+      }
+      .header__search-icon {
+        margin-left: 11px;
+        cursor: pointer;
+      }
+    }
+    @include u-flex(row, start, end);
+    margin: 0 20px 10px 20px;
+    &-input {
+      width: 137px;
+      max-width: 137px;
+      border-bottom: 1px solid $black;
+      background: transparent;
+    }
+    &-icon {
+      width: 14px;
+      height: 100%;
+      margin-left: 7px;
+      cursor: pointer;
+      @include u-flex(row, center, end);
+      & > img {
+        height: 14px;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  &__hamburger-icon {
+    width: 26px;
+    height: 19px;
+    margin: 0 20px 16px 0;
+    cursor: pointer;
+    & > img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  &__mobile-menu {
+    opacity: 0;
+    transition: opacity 0.4s;
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    &-list {
+      width: 100%;
+      height: 100%;
+      @include u-flex(column, start, start);
+    }
+    &-item {
+      width: 100%;
+      border-bottom: 1px solid $white;
+      padding: 11px 20px;
+      @include u-flex(row, center, center);
+      &:first-child {
+        border-top: 1px solid $white;
+      }
+    }
+    &--fade-in {
+      opacity: 1;
+    }
+  }
+}
+
+@include mobileBlock {
+  .header-mobile-open {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: $modalOpacity;
+    z-index: 19;
+  }
+}

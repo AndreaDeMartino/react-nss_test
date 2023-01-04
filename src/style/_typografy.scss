@@ -1,0 +1,119 @@
+/****************************************************
+  * TYPOGRAFY
+  ****************************************************/
+  
+  .text__paragraph {
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 43px;
+  letter-spacing: 0.12em;
+  @include mobileBlock {
+    font-size: 16px;
+    line-height: 33px;
+  }
+
+  &--subtitle {
+    font-size: 18px;
+    line-height: 23px;
+    @include mobileBlock {
+      font-size: 16px;
+      line-height: 33px;
+      letter-spacing: 0.12em;
+    }
+  }
+
+  &--nav {
+    font-size: 19px;
+    line-height: 24px;
+    @include mobileBlock {
+      font-size: 26px;
+      line-height: 33px;
+    }
+  }
+}
+
+.text__pretitle {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  @include mobileBlock {
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  &--small {
+    font-size: 18px;
+    line-height: 22px;
+  }
+  &--spaced {
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.21em;
+  }
+}
+
+.text__default {
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  font-size: 46px;
+  line-height: 61px;
+  @include mobileBlock {
+    font-size: 40px;
+    line-height: 53px;
+  }
+
+  &--title-lg {
+    font-size: 90px;
+    line-height: 120px;
+    @include mobileBlock {
+      font-size: 44px;
+      line-height: 60px;
+    }
+  }
+
+  &--title-md {
+    font-size: 60px;
+    line-height: 80px;
+    @include mobileBlock {
+      font-size: 40px;
+      line-height: 53px;
+    }
+  }
+
+  &--title-sm {
+    font-size: 26px;
+    line-height: 35px;
+    @include mobileBlock {
+      font-size: 40px;
+      line-height: 53px;
+    }
+  }
+
+  &--button {
+    font-size: 26px;
+    line-height: 35px;
+  }
+
+  &--contact {
+    font-size: 22px;
+    line-height: 29px;
+  }
+
+  &--footer {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  &--social {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: 0.21em;
+    @include mobileBlock {
+      letter-spacing: 0.07em;
+    }
+  }
+}

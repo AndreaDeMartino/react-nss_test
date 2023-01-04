@@ -1,0 +1,74 @@
+/****************************************************
+  * CONTACT US
+****************************************************/
+
+.contact-us {
+  width: 100%;
+  height: 368px;
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  @include mobileBlock {
+    height: 375px;
+  }
+  &::before {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    content: "";
+    background: $modalOpacity;
+  }
+  &__wrapper {
+    height: 100%;
+    width: 100%;
+    @include u-flex(column, center, center);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    @include mobileBlock {
+      padding: 0 20px;
+    }
+  }
+  &__sub-title {
+    width: 520px;
+    text-align: center;
+    @include mobileBlock {
+      width: 100%;
+    }
+  }
+  &__title {
+    width: 400px;
+    text-align: center;
+    @include mobileBlock {
+      width: 100%;
+    }
+  }
+  &__input {
+    margin: 46px 8px 48px 0;
+    padding: 20px 20px 22px 20px;
+    background: transparent;
+    border: 1px solid $white;
+    width: 416px;
+    height: 70px;
+    color: $white;
+    @include mobileBlock {
+      width: 254px;
+    }
+  }
+  &__form {
+    @include u-flex(row, center, center);
+    .cta--button {
+      width: 70px;
+      height: 70px;
+      font-size: 22px;
+      line-height: 29px;
+    }
+  }
+}

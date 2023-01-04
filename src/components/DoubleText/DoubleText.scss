@@ -1,0 +1,47 @@
+/****************************************************
+  * DOUBLE TEXT
+****************************************************/
+
+.double-text {
+  margin: 105px 80px 136px;
+  @include u-flex(column, end, start);
+  @include mobileBlock {
+    margin: 88px 20px 113px;
+  }
+
+  &__wrapper {
+    @include u-flex(row, space-around, start);
+    @include mobileBlock {
+      @include u-flex(column, start, start);
+    }
+  }
+
+  &__title {
+    margin-bottom: 58px;
+    width: 45%;
+    @include mobileBlock {
+      width: 100%;
+      margin-bottom: 23px;
+      text-align: center;
+    }
+  }
+
+  &__left {
+    width: 38%;
+    @include mobileBlock {
+      width: 100%;
+      margin-bottom: 37px;
+      text-align: center;
+    }
+  }
+
+  &__right {
+    width: 50%;
+    margin-left: 12%;
+    @include mobileBlock {
+      width: 100%;
+      margin-left: 0;
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,135 @@
+/****************************************************
+  * FOOTER
+****************************************************/
+
+.footer {
+  width: 100%;
+  &__logo {
+    width: 100%;
+    padding: 73px 158px 0;
+    position: relative;
+    @include mobileBlock {
+      @include u-flex(row, center, center);
+      padding: 30px 20px 27px;
+      &::before {
+        background-color: $lightGrey;
+        height: 1px;
+        width: calc(100% - 40px);
+        content: "";
+        bottom: 0;
+        left: 20px;
+        right: 20px;
+        top: 100%;
+        position: absolute;
+      }
+    }
+    .footer__image-logo {
+      object-fit: cover;
+      width: 291px;
+      height: 42px;
+      @include mobileBlock {
+        width: 181px;
+        height: 26px;
+      }
+    }
+  }
+
+  &__cols {
+    padding: 55px 158px 70px;
+    @include u-flex(row, space-between, start);
+    @include mobileBlock {
+      flex-wrap: wrap;
+      padding: 27px 20px 7px;
+    }
+  }
+  &__col {
+    @include u-flex(column, start, start);
+  }
+  &__item {
+    &:last-child {
+      margin-bottom: 0;
+    }
+    margin-bottom: 26px;
+  }
+  &__contacts {
+    .footer__item:nth-last-child(-n + 2) {
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 18px;
+      letter-spacing: 0.21em;
+    }
+  }
+  &__copyright {
+    @include u-flex(row, space-between, start);
+    background-color: $lightBlackTwo;
+    padding: 36px 158px 39px;
+    @include mobileBlock {
+      display: none;
+    }
+  }
+
+  @include mobileBlock {
+    &__about {
+      order: 1;
+      width: 50%;
+      margin-bottom: 30px;
+      position: relative;
+      padding-bottom: 24px;
+      &::before {
+        background-color: $lightGrey;
+        height: 1px;
+        width: 100%;
+        content: "";
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 100%;
+        position: absolute;
+      }
+    }
+    &__sections {
+      order: 2;
+      width: 50%;
+      align-items: end;
+      margin-bottom: 30px;
+      position: relative;
+      padding-bottom: 24px;
+
+      &::before {
+        background-color: $lightGrey;
+        height: 1px;
+        width: 100%;
+        content: "";
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 100%;
+        position: absolute;
+      }
+    }
+    &__company-data {
+      order: 3;
+      width: 100%;
+      align-items: center;
+      margin-bottom: 26px;
+      font-size: 16px;
+      .footer__item {
+        margin-bottom: 8px;
+        &:last-child {
+          display: none;
+          margin-bottom: 0;
+        }
+      }
+    }
+    &__contacts {
+      order: 4;
+      width: 100%;
+      align-items: center;
+      .footer__item {
+        margin-bottom: 23px;
+      }
+    }
+  }
+}

@@ -1,0 +1,113 @@
+/****************************************************
+  * PRESS SWIPER
+****************************************************/
+
+.press-swiper {
+  height: 884px;
+  width: auto;
+  margin: 133px 84px;
+  position: relative;
+  @include u-flex(row, start, center);
+  @include mobileBlock {
+    height: auto;
+    @include u-flex(column, start, start);
+    margin: 133px 0 0;
+  }
+  &__block-text {
+    width: 50%;
+    min-width: 50%;
+    height: 100%;
+    background: $white;
+    @include u-flex(column, start, start);
+    @include mobileBlock {
+      @include u-flex(column, center, center);
+      width: 100%;
+      min-width: 100%;
+      padding: 0 20px;
+    }
+    .block__text--sub-title {
+      margin-bottom: 62px;
+      @include mobileBlock {
+        margin-bottom: 25px;
+        text-align: center;
+      }
+    }
+    .block__text--paragraph {
+      padding-right: 46%;
+      @include mobileBlock {
+        padding-right: 0;
+        margin-bottom: 45px;
+      }
+    }
+  }
+  &__block-bg {
+    width: 50%;
+    min-width: 50%;
+    height: 100%;
+    padding: 224px 30px 0 26%;
+    @include mobileBlock {
+      width: 100%;
+      height: auto;
+      min-width: 100%;
+      padding: 60px 15px 0;
+    }
+    .slider-text {
+      @include u-flex(column, start, start);
+      max-width: 372px;
+      @include mobileBlock {
+        @include u-flex(column, start, start);
+        width: 100%;
+        max-width: 100%;
+      }
+      .slide-date {
+        margin-top: 4px;
+        margin-bottom: 49px;
+        @include mobileBlock {
+          margin-top: 11px;
+          margin-bottom: 35px;
+        }
+      }
+      .slide-arrows {
+        margin-top: 70px;
+        margin: 70px auto 40px;
+        @include u-flex(row, start, center);
+        .slide-arrow {
+          padding: 10px;
+          cursor: pointer;
+          &--left {
+            margin-right: 60px;
+          }
+        }
+      }
+    }
+  }
+  &__slider {
+    width: 40%;
+    min-height: 620px;
+    max-height: 620px;
+    position: absolute;
+    top: 26%;
+    left: 33%;
+    overflow: hidden;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include mobileBlock {
+      width: 100%;
+      position: relative;
+      top: 0;
+      left: 0;
+      height: 290px;
+      min-height: unset;
+      max-height: unset;
+    }
+  }
+  .press-swiper__slider-wrapper {
+    width: 100%;
+    height: 100%;
+    @include mobileBlock {
+      height: 290px;
+      padding: 40px 20px 20px;
+    }
+  }
+}

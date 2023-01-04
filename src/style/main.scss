@@ -1,0 +1,26 @@
+/****************************************************
+  * MAIN SCSS FILE
+****************************************************/
+
+@import "variables.scss";
+@import "breakpoint.scss";
+@import "typografy.scss";
+@import "common.scss";
+@import "utility.scss";
+
+// Common Components
+@import "./../components/Common/Footer/Footer.scss";
+@import "./../components/Common/Header/Header.scss";
+
+// UI Components
+@import "./../components/UI/Cta/Cta.scss";
+
+// Components
+@import "./../components/HeroBanner/HeroBanner.scss";
+@import "./../components/ContactUs/ContactUs.scss";
+@import "./../components/DoubleText/DoubleText.scss";
+@import "./../components/Mosaic/Mosaic.scss";
+@import "./../components/PressSwiper/PressSwiper.scss";
+@import "./../components/TextImage/TextImage.scss";
+@import "./../components/TextImage/TextImageBlock/TextImageBlock.scss";
+

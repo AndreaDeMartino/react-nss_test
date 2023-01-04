@@ -1,0 +1,76 @@
+/****************************************************
+  * MOSAIC
+****************************************************/
+
+.mosaic {
+  width: 100%;
+  height: 884px;
+  padding: 0 80px 80px;
+  @include u-flex(row, center, center);
+  @include mobileBlock {
+    height: auto;
+    @include u-flex(column, center, center);
+    padding: 0;
+  }
+  &__large-block {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    @include mobileBlock {
+      height: 825px;
+      width: 100%;
+    }
+    .mosaic__large {
+      width: 100%;
+      height: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      &::before {
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        position: absolute;
+        content: "";
+        background: $modalOpacity;
+      }
+    }
+    .mosaic__large-text {
+      height: 100%;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+      @include u-flex(column, center, center);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+      @include mobileBlock {
+        max-width: 210px;
+      }
+    }
+  }
+  &__small-blocks {
+    width: 50%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: repeat(2, 50%);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    @include mobileBlock {
+      height: 375px;
+      width: 100%;
+    }
+    .mosaic__small {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

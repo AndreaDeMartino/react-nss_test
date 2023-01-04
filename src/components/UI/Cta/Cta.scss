@@ -1,0 +1,26 @@
+/****************************************************
+  * CTA
+****************************************************/
+
+.cta {
+  &--button {
+    border: 1px solid $white;
+    color: $black;
+    width: 350px;
+    height: 70px;
+    @include u-flex(start, center, center);
+    cursor: pointer;
+    transition: 300ms;
+    &:hover {
+      background-color: white;
+      color: black !important;
+    }
+    @include mobileBlock {
+      width: 280px;
+      height: 57px;
+    }
+  }
+  &--bg-hover {
+    background-color: $darkGrey !important;
+  }
+}

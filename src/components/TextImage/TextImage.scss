@@ -1,0 +1,21 @@
+/****************************************************
+  * TEXT IMAGE
+****************************************************/
+
+.text-image {
+  @include u-flex(row, center, center);
+  margin: 0 80px;
+  @include mobileBlock {
+    @include u-flex(column-reverse, center, center);
+    margin: 0;
+  }
+  &__col {
+    width: 50%;
+    @include mobileBlock {
+      width: 100%;
+      &-image {
+        order: 1;
+      }
+    }
+  }
+}

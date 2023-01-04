@@ -1,0 +1,166 @@
+/****************************************************
+  * HERO BANNER
+****************************************************/
+
+.hero-banner {
+  width: 100%;
+  height: 980px;
+  @include mobileBlock {
+    max-height: 731px;
+    padding-top: 81px;
+  }
+  &__wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    &:not(.hero-banner__wrapper--change)::before {
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+      content: "";
+      background: $modalOpacity;
+      z-index: 2;
+    }
+  }
+  &__slide {
+    width: 100%;
+    height: 100%;
+    @include u-flex(row, center, center);
+    background: $opacityBg;
+
+    &-text-wrapper {
+      height: auto;
+      width: 798px;
+      max-width: 798px;
+      z-index: 3;
+      @include u-flex(column, center, center);
+      @include mobileBlock {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 35px;
+      }
+      .slide-title {
+        margin-top: 52px;
+        margin-bottom: 21px;
+        text-align: center;
+      }
+      .slide-sub-title {
+        text-align: center;
+      }
+      .cta--button {
+        margin-top: 52px;
+      }
+    }
+  }
+  &__thumb {
+    position: absolute;
+    width: 25%;
+    max-width: 25%;
+    height: 33%;
+    max-height: 33%;
+    overflow: hidden;
+    right: 78px;
+    bottom: 0;
+    z-index: 2;
+    cursor: pointer;
+    @include mobileBlock {
+      bottom: 24px;
+      right: 10px;
+      width: 200px;
+      max-width: 200px;
+      height: 22px;
+      max-height: 100px;
+    }
+    &-image {
+      transition: transform 0.5s;
+    }
+    &-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s;
+      &::before {
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        position: absolute;
+        content: "";
+        background: $modalOpacity;
+        z-index: 2;
+        @include mobileBlock {
+          content: none;
+        }
+      }
+
+      &--hover {
+        z-index: 2;
+        .hero-banner__thumb-image,
+        .thumb-title {
+          transform: scale(1.15);
+        }
+        .hero-banner__thumb-next-arrows {
+          opacity: 1;
+        }
+      }
+    }
+    &-text {
+      width: 100%;
+      height: 100%;
+      .thumb-title {
+        position: absolute;
+        max-width: 250px;
+        top: 43px;
+        left: 59px;
+        z-index: 3;
+        transition: transform 0.5s;
+      }
+      .thumb-button {
+        position: absolute;
+        right: 25px;
+        bottom: 45px;
+        z-index: 3;
+        color: $white;
+        @include u-flex(row, start, center);
+        @include mobileBlock {
+          position: relative;
+          right: unset;
+          left: unset;
+          bottom: unset;
+          top: unset;
+          justify-content: end;
+        }
+        &__arrow {
+          margin-left: 30px;
+        }
+      }
+    }
+
+    &-next-arrows {
+      opacity: 0;
+      transition: 300ms;
+    }
+  }
+  .slide-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+  }
+}

@@ -1,0 +1,74 @@
+/****************************************************
+  * VARIABLES
+  ****************************************************/
+
+/* === COLORS === */
+$white: #fff;
+$black: #000000;
+$lightBlackOne: #333333;
+$lightBlackTwo: #303030;
+$grey: #d9d9d9;
+$lightGrey: #d0c5b6;
+$darkGrey: #808080;
+$opacityBg: rgb(89, 88, 88);
+$modalOpacity: rgba(0, 0, 0, 0.4);
+
+/* === FONTS === */
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap");
+
+/* === CUSTOM COLOR AND BG CLASSES === */
+.color--white {
+  color: $white !important;
+}
+
+.color--black {
+  color: $black !important;
+}
+
+.color--lightBlackOne {
+  color: $lightBlackOne !important;
+}
+
+.color--lightBlackTwo {
+  color: $lightBlackTwo !important;
+}
+
+.color--grey {
+  color: $grey !important;
+}
+
+.color--lightGrey {
+  color: $lightGrey !important;
+}
+
+.color--darkGrey {
+  color: $darkGrey !important;
+}
+
+.bg--white {
+  background-color: $white !important;
+}
+
+.bg--black {
+  background-color: $black !important;
+}
+
+.bg--lightBlackOne {
+  background-color: $lightBlackOne !important;
+}
+
+.bg--lightBlackTwo {
+  background-color: $lightBlackTwo !important;
+}
+
+.bg--grey {
+  background-color: $grey !important;
+}
+
+.bg--lightGrey {
+  background-color: $lightGrey !important;
+}
+
+.bg--darkGrey {
+  background-color: $darkGrey !important;
+}

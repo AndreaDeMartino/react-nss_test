@@ -4,7 +4,8 @@ import React, { useState } from "react";
 import { Cta } from "./../UI/Cta/Cta";
 
 // Utility and Retrive Context
-import { getLocalPathImage } from "./../../utility";
+import { getImagePath } from "./../../utility";
+import LazyLoad from "react-lazy-load";
 
 const ContactUs = ({ contactUsData }) => {
   // State
@@ -20,15 +21,10 @@ const ContactUs = ({ contactUsData }) => {
   };
   // Jsx
   return (
-    <div
-      className="contact-us"
-      style={{
-        backgroundImage: `url(${getLocalPathImage(
-          "image",
-          contactUsData.image
-        )})`,
-      }}
-    >
+    <div className="contact-us">
+      <LazyLoad offsetTop={200} height={"100%"} width={"100%"}>
+        <img className="contact-us__bg" src={getImagePath(contactUsData.image)} alt="contact-us-image" />
+      </LazyLoad>
       <div className="contact-us__wrapper">
         <h3
           className={`contact-us__sub-title text__default text__default--title-lg  color--${contactUsData.title.color}`}
@@ -53,7 +49,7 @@ const ContactUs = ({ contactUsData }) => {
             textColor={contactUsData?.cta.textColor}
             borderColor={contactUsData?.cta.borderColor}
             bg={contactUsData?.cta.bg}
-            isCta= {false}
+            isCta={false}
             onClickEvent={sentEmailHandler}
           >
             {contactUsData?.cta.label}

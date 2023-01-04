@@ -1,11 +1,11 @@
 import React from "react";
 
 // Utility and Retrive Context
-import { getLocalPathImage } from "./../../../utility";
+import { getImagePath } from "./../../../utility";
 
 const Footer = ({ footerData }) => {
   // Icons
-  const logo = getLocalPathImage("icon", footerData.logoIcon);
+  const logo = getImagePath(footerData.logoIcon);
   
   // Jsx
   return (

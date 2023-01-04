@@ -1,23 +1,25 @@
 import React from "react";
 
 // Utility
-import { getLocalPathImage } from "./../../../utility";
+import { getImagePath } from "./../../../utility";
+import LazyLoad from "react-lazy-load";
 
 // Components
 import { Cta } from "./../../UI/Cta/Cta";
 
 export const TextImageBlock = ({ blockData }) => {
-
   // Jsx
   return (
     <div className="text-image__block">
       {blockData?.isImage ? (
         <div className="block__image-wrapper">
-          <img
-            className="block__image"
-            src={getLocalPathImage("image", blockData.image)}
-            alt="block image"
-          />
+          <LazyLoad offsetTop={200}>
+            <img
+              className="block__image"
+              src={getImagePath(blockData.image)}
+              alt="block image"
+            />
+          </LazyLoad>
         </div>
       ) : (
         <div className="block__text">

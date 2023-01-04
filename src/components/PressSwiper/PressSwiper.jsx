@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 
 // Utility and Retrive Context
-import { getLocalPathImage } from "./../../utility";
+import { getImagePath } from "./../../utility";
+import LazyLoad from "react-lazy-load";
 
 const PressSwiper = ({ pressSwiperData }) => {
   // Icons
-  const arrowLeftIcon = getLocalPathImage("icon", "arrow_left.svg");
-  const arrowRightIcon = getLocalPathImage("icon", "arrow_right.svg");
+  const arrowLeftIcon = getImagePath("/icon/arrow_left.svg");
+  const arrowRightIcon = getImagePath("/icon/arrow_right.svg");
 
   // Retrive Image List
   const retriveImageList = pressSwiperData?.press.map((el) => {
-    return getLocalPathImage("image", el.image);
+    return getImagePath(el.image);
   });
 
   // State
@@ -45,11 +46,15 @@ const PressSwiper = ({ pressSwiperData }) => {
           {pressSwiperData.textBlock.paragraph.label}
         </p>
       </div>
-      <div className={`press-swiper__slider-wrapper bg--${pressSwiperData.textBlock.bgColorSlideBlock}`}>
-        <div
-          className="press-swiper__slider"
-          style={{ backgroundImage: `url(${retriveImageList[slideIndex]}` }}
-        ></div>
+      <div
+        className={`press-swiper__slider-wrapper bg--${pressSwiperData.textBlock.bgColorSlideBlock}`}
+      >
+        <LazyLoad offsetTop={200}>
+          <img
+            className="press-swiper__slider"
+            src={retriveImageList[slideIndex]}
+          ></img>
+        </LazyLoad>
       </div>
       <div
         className={`press-swiper__block-bg bg--${pressSwiperData.textBlock.bgColorSlideBlock}`}
@@ -71,17 +76,21 @@ const PressSwiper = ({ pressSwiperData }) => {
             {pressSwiperData.press[slideIndex].title.label}
           </h3>
           <div className="slide-arrows">
-            <img
-              className="slide-arrow slide-arrow--left"
-              src={arrowLeftIcon}
-              alt="arrow-left"
-            />
-            <img
-              className="slide-arrow slide-arrow--right"
-              src={arrowRightIcon}
-              alt="arrow-right"
-              onClick={getNextIndex}
-            />
+            <LazyLoad offsetTop={200}>
+              <img
+                className="slide-arrow slide-arrow--left"
+                src={arrowLeftIcon}
+                alt="arrow-left"
+              />
+            </LazyLoad>
+            <LazyLoad offsetTop={200}>
+              <img
+                className="slide-arrow slide-arrow--right"
+                src={arrowRightIcon}
+                alt="arrow-right"
+                onClick={getNextIndex}
+              />
+            </LazyLoad>
           </div>
         </div>
       </div>

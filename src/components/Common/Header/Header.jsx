@@ -3,14 +3,15 @@ import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
 // Utility and Retrive Context
 import { DeviceHelperContext } from "./../../../App";
-import { getLocalPathImage } from "./../../../utility";
+import { getImagePath } from "./../../../utility";
+
 
 const Header = ({ headerData }) => {
   // Icons
-  const logo = getLocalPathImage("icon", headerData.logoIcon);
-  const searchIcon = getLocalPathImage("icon", headerData.searchIcon);
-  const hamburgerIcon = getLocalPathImage("icon", headerData.hamburgerIcon);
-  const closeIcon = getLocalPathImage("icon", headerData.closeIcon);
+  const logo = getImagePath(headerData.logoIcon);
+  const searchIcon = getImagePath(headerData.searchIcon);
+  const hamburgerIcon = getImagePath(headerData.hamburgerIcon);
+  const closeIcon = getImagePath(headerData.closeIcon);
 
   // State
   const { isMobile } = useContext(DeviceHelperContext);

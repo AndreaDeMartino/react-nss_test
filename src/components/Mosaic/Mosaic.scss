@@ -23,9 +23,6 @@
     .mosaic__large {
       width: 100%;
       height: 100%;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
       &::before {
         height: 100%;
         width: 100%;
@@ -36,6 +33,11 @@
         position: absolute;
         content: "";
         background: $modalOpacity;
+      }
+      &-image{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
     }
     .mosaic__large-text {

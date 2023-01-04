@@ -37,16 +37,16 @@ export const data = {
     navItemsColorDesktop: "black",
     navItemsColorMobile: "black",
     navItemsMobileBg: "lightGrey",
-    logoIcon: "logo.svg",
-    searchIcon: "search.svg",
-    hamburgerIcon: "hamburger.svg",
-    closeIcon: "close.svg",
+    logoIcon: "/icon/logo.svg",
+    searchIcon: "/icon/search.svg",
+    hamburgerIcon: "/icon/hamburger.svg",
+    closeIcon: "/icon/close.svg",
   },
   heroBanner: {
     slideList: [
       {
         id: 1,
-        image: "slide_1.png",
+        image: "/images/slide_1.png",
         preTitle: { label: "LONDON COLLECTION SEASON", color: "white" },
         title: { label: "The Path to Success with Watchlab", color: "white" },
         subTitle: {
@@ -63,7 +63,7 @@ export const data = {
       },
       {
         id: 2,
-        image: "slide_2.png",
+        image: "/images/slide_2.png",
         preTitle: { label: "LONDON COLLECTION SEASON", color: "white" },
         title: { label: "New Selection Of Henry London", color: "white" },
         subTitle: {
@@ -120,14 +120,14 @@ export const data = {
       },
       right: {
         isImage: true,
-        image: "article_1.png",
+        image: "/images/article_1.png",
       },
     },
     {
       id: 2,
       left: {
         isImage: true,
-        image: "article_2.png",
+        image: "/images/article_2.png",
       },
       right: {
         isImage: false,
@@ -165,13 +165,13 @@ export const data = {
         preTitle: { label: "PRESS", color: "black" },
         date: { label: "18 SETTEMBRE 2022", color: "lightGrey" },
         title: { label: "Most Important Days on Watchlab", color: "black" },
-        image: "article_3.png",
+        image: "/images/article_3.png",
       },
       {
         preTitle: { label: "PRESS", color: "black" },
         date: { label: "23 SETTEMBRE 2022", color: "lightGrey" },
         title: { label: "Winner Of Best Manifacture", color: "black" },
-        image: "article_4.png",
+        image: "/images/article_4.png",
       },
     ],
   },
@@ -179,33 +179,33 @@ export const data = {
     {
       id: 1,
       sizeLarge: true,
-      image: "./mosaic_large.png",
+      image: "/images/mosaic_large.png",
       preTitle: { label: "INSTAGRAM", color: "white" },
       title: { label: "Discover Watch Lab", color: "white" },
     },
     {
       id: 2,
       sizeLarge: false,
-      image: "./mosaic_small_1.png",
+      image: "/images//mosaic_small_1.png",
     },
     {
       id: 3,
       sizeLarge: false,
-      image: "./mosaic_small_2.png",
+      image: "/images//mosaic_small_2.png",
     },
     {
       id: 4,
       sizeLarge: false,
-      image: "./mosaic_small_3.png",
+      image: "/images//mosaic_small_3.png",
     },
     {
       id: 5,
       sizeLarge: false,
-      image: "./mosaic_small_4.png",
+      image: "/images//mosaic_small_4.png",
     },
   ],
   contactUs: {
-    image: "./contact-us.png",
+    image: "/images/contact-us.png",
     title: { label: "Get in Touch", color: "white" },
     subTitle: {
       label: "DISCOVER MORE ABOUT NEWS, EXCLUSIVE EVENTS AND DISCOUNT",
@@ -222,7 +222,7 @@ export const data = {
   footer: {
     bg: "lightBlackOne",
     color: "lightGrey",
-    logoIcon: "logo.svg",
+    logoIcon: "/icon/logo.svg",
     companyData: [
       { id: "1", label: "Watch/Lab - Innovation brings success", url: "#" },
       { id: "2", label: "Via Borgogna 5, Milan", url: "#" },

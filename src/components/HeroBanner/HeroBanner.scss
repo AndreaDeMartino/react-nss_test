@@ -31,7 +31,7 @@
     height: 100%;
     @include u-flex(row, center, center);
     background: $opacityBg;
-
+  
     &-text-wrapper {
       height: auto;
       width: 798px;

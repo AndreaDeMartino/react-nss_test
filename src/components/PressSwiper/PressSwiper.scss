@@ -89,9 +89,7 @@
     top: 26%;
     left: 33%;
     overflow: hidden;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    object-fit: cover;
     @include mobileBlock {
       width: 100%;
       position: relative;

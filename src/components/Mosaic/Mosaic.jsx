@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
 // Utility and Retrive Context
-import { getLocalPathImage } from "./../../utility";
+import { getImagePath } from "./../../utility";
+import LazyLoad from "react-lazy-load";
 
 const Mosaic = ({ mosaicData }) => {
   // Retrive Image List
@@ -19,15 +20,15 @@ const Mosaic = ({ mosaicData }) => {
   return (
     <div className="mosaic">
       <div className="mosaic__large-block">
-        <div
-          className="mosaic__large"
-          style={{
-            backgroundImage: `url(${getLocalPathImage(
-              "image",
-              largeBox.image
-            )})`,
-          }}
-        >
+        <div className="mosaic__large">
+          <LazyLoad offsetTop={200} height={"100%"}>
+            <img
+              className="mosaic__large-image"
+              src={getImagePath(largeBox.image)}
+              alt="mosaic_large"
+            />
+          </LazyLoad>
+
           <div className="mosaic__large-text">
             <h4
               className={`mosaic__large-pre-title text__default text__default--social color--${largeBox.preTitle.color}`}
@@ -45,12 +46,13 @@ const Mosaic = ({ mosaicData }) => {
       <div className="mosaic__small-blocks">
         {smallBoxex.map((smallBox) => {
           return (
-            <img
-              className="mosaic__small"
-              key={smallBox.id}
-              src={getLocalPathImage("image", smallBox.image)}
-              alt="large image"
-            />
+            <LazyLoad offsetTop={200} key={smallBox.id}>
+              <img
+                className="mosaic__small"
+                src={getImagePath(smallBox.image)}
+                alt="large image"
+              />
+            </LazyLoad>
           );
         })}
       </div>

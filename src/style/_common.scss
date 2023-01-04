@@ -37,11 +37,11 @@ input {
   overflow: hidden;
 }
 
-img{
+img {
   object-fit: cover;
 }
 
-::placeholder { 
+::placeholder {
   color: $white;
   opacity: 1;
 }

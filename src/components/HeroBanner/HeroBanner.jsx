@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
-import ImageFadeIn from "react-image-fade-in";
+// import ImageFadeIn from "react-image-fade-in";
 
 // Utility and Retrive Context
 import { DeviceHelperContext } from "./../../App";
-import { getLocalPathImage } from "./../../utility";
+import { getImagePath } from "./../../utility";
+import LazyLoad from "react-lazy-load";
 
 // Components
 import { Cta } from "./../UI/Cta/Cta";
@@ -11,12 +12,11 @@ import { Cta } from "./../UI/Cta/Cta";
 const HeroBanner = ({ heroBannerData }) => {
   // Retrive Image List
   const retriveImageList = heroBannerData.map((el) => {
-    return getLocalPathImage("image", el.image);
+    return getImagePath(el.image);
   });
 
   // States
   const { isMobile } = useContext(DeviceHelperContext);
-  const { isMenuMobileOpen } = useContext(DeviceHelperContext);
   const [slideIndex, setSlideIndex] = useState(0);
   const [thumbButtonHover, setThumbButtonHover] = useState(false);
   const [imageChange, setImageChange] = useState(false);
@@ -47,14 +47,21 @@ const HeroBanner = ({ heroBannerData }) => {
   return (
     <>
       <div className="hero-banner">
-        <div className={`hero-banner__wrapper ${imageChange ? 'hero-banner__wrapper--change' : ''}`} id="slide_container">
+        <div
+          className={`hero-banner__wrapper ${
+            imageChange ? "hero-banner__wrapper--change" : ""
+          }`}
+          id="slide_container"
+        >
           <div className="hero-banner__slide">
             {!imageChange && (
-              <ImageFadeIn
-                className="hero-banner__slide-image slide-image"
-                src={retriveImageList[slideIndex]}
-                alt="slide-image"
-              ></ImageFadeIn>
+              <LazyLoad offsetTop={200}>
+                <img
+                  className="hero-banner__slide-image slide-image"
+                  src={retriveImageList[slideIndex]}
+                  alt="slide-image"
+                ></img>
+              </LazyLoad>
             )}
             <div className="hero-banner__slide-text-wrapper">
               <h2
@@ -95,11 +102,13 @@ const HeroBanner = ({ heroBannerData }) => {
               }}
             >
               {!isMobile && (
-                <img
-                  className="hero-banner__thumb-image slide-image"
-                  src={retriveImageList[getNextIndex()]}
-                  alt="slide-image"
-                />
+                <LazyLoad offsetTop={200}>
+                  <img
+                    className="hero-banner__thumb-image slide-image"
+                    src={retriveImageList[getNextIndex()]}
+                    alt="slide-image"
+                  />
+                </LazyLoad>
               )}
               <div className="hero-banner__thumb-text">
                 {!isMobile && (

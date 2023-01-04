@@ -13,7 +13,7 @@ export const TextImageBlock = ({ blockData }) => {
     <div className="text-image__block">
       {blockData?.isImage ? (
         <div className="block__image-wrapper">
-          <LazyLoad offsetTop={200}>
+          <LazyLoad offset={600} height={"100%"} width={"100%"}>
             <img
               className="block__image"
               src={getImagePath(blockData.image)}

@@ -55,7 +55,7 @@ const HeroBanner = ({ heroBannerData }) => {
         >
           <div className="hero-banner__slide">
             {!imageChange && (
-              <LazyLoad offsetTop={200}>
+              <LazyLoad offset={200}>
                 <img
                   className="hero-banner__slide-image slide-image"
                   src={retriveImageList[slideIndex]}
@@ -102,7 +102,7 @@ const HeroBanner = ({ heroBannerData }) => {
               }}
             >
               {!isMobile && (
-                <LazyLoad offsetTop={200}>
+                <LazyLoad offset={200}>
                   <img
                     className="hero-banner__thumb-image slide-image"
                     src={retriveImageList[getNextIndex()]}

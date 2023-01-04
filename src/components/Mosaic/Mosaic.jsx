@@ -21,7 +21,7 @@ const Mosaic = ({ mosaicData }) => {
     <div className="mosaic">
       <div className="mosaic__large-block">
         <div className="mosaic__large">
-          <LazyLoad offsetTop={200} height={"100%"}>
+          <LazyLoad offset={400} height={"100%"}>
             <img
               className="mosaic__large-image"
               src={getImagePath(largeBox.image)}
@@ -46,7 +46,7 @@ const Mosaic = ({ mosaicData }) => {
       <div className="mosaic__small-blocks">
         {smallBoxex.map((smallBox) => {
           return (
-            <LazyLoad offsetTop={200} key={smallBox.id}>
+            <LazyLoad offset={400} key={smallBox.id}>
               <img
                 className="mosaic__small"
                 src={getImagePath(smallBox.image)}

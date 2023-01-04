@@ -22,7 +22,7 @@ const ContactUs = ({ contactUsData }) => {
   // Jsx
   return (
     <div className="contact-us">
-      <LazyLoad offsetTop={200} height={"100%"} width={"100%"}>
+      <LazyLoad offset={300} height={"100%"} width={"100%"}>
         <img className="contact-us__bg" src={getImagePath(contactUsData.image)} alt="contact-us-image" />
       </LazyLoad>
       <div className="contact-us__wrapper">

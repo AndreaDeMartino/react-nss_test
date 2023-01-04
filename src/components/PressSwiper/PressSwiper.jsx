@@ -49,7 +49,7 @@ const PressSwiper = ({ pressSwiperData }) => {
       <div
         className={`press-swiper__slider-wrapper bg--${pressSwiperData.textBlock.bgColorSlideBlock}`}
       >
-        <LazyLoad offsetTop={200}>
+        <LazyLoad offset={400}>
           <img
             className="press-swiper__slider"
             src={retriveImageList[slideIndex]}
@@ -76,14 +76,14 @@ const PressSwiper = ({ pressSwiperData }) => {
             {pressSwiperData.press[slideIndex].title.label}
           </h3>
           <div className="slide-arrows">
-            <LazyLoad offsetTop={200}>
+            <LazyLoad offset={200}>
               <img
                 className="slide-arrow slide-arrow--left"
                 src={arrowLeftIcon}
                 alt="arrow-left"
               />
             </LazyLoad>
-            <LazyLoad offsetTop={200}>
+            <LazyLoad offset={200}>
               <img
                 className="slide-arrow slide-arrow--right"
                 src={arrowRightIcon}
